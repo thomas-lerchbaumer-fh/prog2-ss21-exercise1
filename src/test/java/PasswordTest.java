@@ -16,28 +16,51 @@ class PasswordTest {
 
     @Test
     void testCheckLength1() {
-        PasswordChecker password = new PasswordChecker();
+        PasswordChecker pw = new PasswordChecker();
         boolean expected = false;
-        boolean actual = password.checkLength("thomas");
+        boolean actual = pw.checkLength("thomas");
         assertEquals(expected,actual);
     }
 
     @Test
     void testCheckLength2() {
-        PasswordChecker password = new PasswordChecker();
+        PasswordChecker pw = new PasswordChecker();
         boolean expected = false;
-        boolean actual = password.checkLength("thomas231589472895748954238905048927892357923457489235432");
+        boolean actual = pw.checkLength("thomas231589472895748954238905048927892357923457489235432");
         assertEquals(expected,actual);
     }
 
     @Test
     void testCheckLength3() {
-        PasswordChecker password = new PasswordChecker();
+        PasswordChecker pw = new PasswordChecker();
         boolean expected = true;
-        boolean actual = password.checkLength("thomasIsTesting");
+        boolean actual = pw.checkLength("thomasIsTesting");
         assertEquals(expected,actual);
     }
 
+    @Test
+    void testCheckUpperCase1(){
+        PasswordChecker password = new PasswordChecker();
+        boolean expected = false;
+        boolean actual = password.checkCaps("thomas");
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void testCheckUpperCase2(){
+        PasswordChecker password = new PasswordChecker();
+        boolean expected = false;
+        boolean actual = password.checkCaps("THOMAS");
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void testCheckUpperCase3(){
+        PasswordChecker password = new PasswordChecker();
+        boolean expected = true;
+        boolean actual = password.checkCaps("THOmAS");
+        assertEquals(expected,actual);
+    }
 
 
 
